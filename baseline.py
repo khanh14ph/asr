@@ -41,7 +41,7 @@ root="/kaggle/input/vlsp-asr/"
 train_dataset = load_dataset("csv", data_files='/kaggle/input/vlsp-asr/VLSP/train/train_simple.csv.txt', split="train")
 test_dataset = load_dataset("csv", data_files='/kaggle/input/vlsp-asr/VLSP/dev/dev_simple.csv.txt', split="train")
 
-tokenizer = Wav2Vec2CTCTokenizer(root+"VLSP/vocab.json.txt", unk_token="[unk]", pad_token="[pad]", word_delimiter_token="|")
+tokenizer = Wav2Vec2CTCTokenizer(root+"VLSP/vocab.json.txt", unk_token="<unk>", pad_token="<pad>", word_delimiter_token="|")
 feature_extractor = Wav2Vec2FeatureExtractor(feature_size=1, sampling_rate=16000, padding_value=0.0, do_normalize=True, return_attention_mask=True)
 processor = Wav2Vec2Processor(feature_extractor=feature_extractor, tokenizer=tokenizer)
 
